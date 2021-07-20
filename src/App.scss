@@ -1,0 +1,163 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.main-header {
+  background-color: #004dda;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  display: table;
+}
+
+#logo img {
+  width: 100px;
+  height: 35px;
+}
+
+.nav-bar {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.main-nav {
+  background-color: whitesmoke;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  display: table;
+  color: #444 !important;
+ 
+}
+
+.nav-cate {
+  font-weight: bold;
+  font-size: 18px;
+  display: block;
+
+}
+
+.nav-cate:hover .sub-nav-cate {
+  display: block;
+}
+
+.nav-icons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sub-nav-cate {
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  z-index: 2;
+}
+
+.cart-count {
+  color: #004dda !important;
+  font-size: 15px !important;
+  position: absolute;
+  bottom: 5px;
+  left: 100px;
+}
+
+.scroll-image {
+  display: table;
+}
+
+.main-scroll-image img {
+  width: 100%;
+  height: 500px;
+}
+
+.sub-scroll-image {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+.sub-scroll-image img {
+  width: 100%;
+  height: 200px;
+}
+
+.grid-item {
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: bold;
+  flex-direction: row;
+  border: 1px solid whitesmoke;
+  margin: 10px;
+
+}
+
+.image-product img {
+  width: 100%;
+  height: 400px;
+
+
+}
+.info-product {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.info-product h3 {
+  color: #444;
+}
+
+.new-price {
+  font-size: 25px;
+  color: #004dda;
+}
+
+.old-price {
+  color: #999;
+  text-decoration: line-through;
+  display: inline-block;
+}
+
+.btn {
+  border-radius: 0;
+  font-weight: bold;
+  background-color: #212121;
+  color: white;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, .2);
+ 
+}
+.top-sell-title{
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.main-footer{
+  margin-top: auto;
+  height: 300px;
+  width: 100%;
+  background-color: #004dda;
+  color: white;
+  padding: 60px 0 35px 0;
+}
+.main-footer img {
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+}
+.main-footer hr {
+ background-color: white;
+}
+.main-news img{
+  width: 229px;
+  height: 220px;
+}
+.tb-cart img{
+  width: 250px;
+  height: 250px;
+}
+.cart-check-out{
+  height: 150px;
+}
