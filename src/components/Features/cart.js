@@ -1,13 +1,43 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import Table from 'react-bootstrap/Table'
 import { useDispatch, useSelector } from 'react-redux'
 import { onGetcCartItem, onIncreaseQuantityItem, onDecreaseQuantityItem } from '../../redux/constants/Cart';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import { Alert, AlertTitle } from '@material-ui/lab';
 
 const Cart = () => {
-
     const cart = useSelector(state => state.cart);
+    const [isCheckOut, setCheckOut] = useState(false);
     const dispatch = useDispatch();
-    console.log(cart.listItem);
+    const total = cart.listItem.reduce((acc, curr) => {
+        console.log(curr)
+        return acc + curr.quantity * curr.price;
+    }, 0)
+    const [open, setOpen] = useState(false);
+    const [isSuccess, setSuccess] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleCheckOut = () => {
+        setCheckOut(true);
+        setTimeout(() => {
+            setCheckOut(false);
+            setOpen(false);
+            setSuccess(true);
+        }, 5000);
+    }
     return (
         <div>
             <Table striped bordered hover className="tb-cart">
@@ -38,21 +68,63 @@ const Cart = () => {
                             </tr>
                         ))
                     }
-
                 </tbody>
             </Table>
-            <hr/>
-            <div className="cart-check-out">             
-                <button className="btn bg-secondary ml-2">Check out</button>
+            <hr />
+            {total > 0 && <div className="cart-check-out">
+                <h3>Total: {total} $</h3>
+                <button className="btn bg-secondary ml-2" onClick={handleClickOpen}>Go to Check out</button>
             </div>
+            }
+            {isSuccess && <Alert severity="success">
+                <AlertTitle>Success !</AlertTitle>
+            </Alert>}
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">CheckOut</DialogTitle>
+                {isCheckOut && <LinearProgress color="secondary" />}
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        <Table striped bordered hover className="tb-cart">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Product</th>
+                                    <th>Image</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    cart.listItem.map((item, index) => (
+                                        <tr key={index}>
+                                            <td>{index + 1}</td>
+                                            <td> {item.name} </td>
+                                            <td> <img src={item.img} ></img></td>
+                                            <td> {item.quantity} </td>
+                                            <td> {item.price} </td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </Table>
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                        Close
+                    </Button>
+                    <Button onClick={handleCheckOut} color="primary" autoFocus>
+                        Check Out
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </div>
-
     )
-}
-
-const CheckOut =()=>{
-
-    
-
 }
 export default Cart;
