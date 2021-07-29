@@ -12,7 +12,9 @@ import Search from './components/Features/search';
 import Footer from './components/Footer';
 import News from './components/Main/news';
 import ProductAll from './components/Main/product_all'
-import CATEGORIES from './components/Features/categories';
+import Categories from './components/Features/categories';
+import Contact from './components/Features/contact';
+import TrackingFlow from './components/Features/tracking';
 
 function App() {
   return (
@@ -40,7 +42,13 @@ function App() {
               <ProductAll />
             </Route>
             <Route exact path="/categories/:cateName">
-              <CATEGORIES />
+              <Categories />
+            </Route>
+            <Route exact path="/contact">
+              <Contact />
+            </Route>
+            <Route exact path="/tracking">
+              <TrackingFlow />
             </Route>
           </Switch>
           <Footer />

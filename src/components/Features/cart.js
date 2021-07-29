@@ -1,12 +1,10 @@
 import React, { useMemo, useState } from 'react'
 import Table from 'react-bootstrap/Table'
 import { useDispatch, useSelector } from 'react-redux'
-import { onGetcCartItem, onIncreaseQuantityItem, onDecreaseQuantityItem } from '../../redux/constants/Cart';
+import { onGetcCartItem, onIncreaseQuantityItem, onDecreaseQuantityItem, onCheckoutItem } from '../../redux/constants/Cart';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { Alert, AlertTitle } from '@material-ui/lab';
@@ -30,13 +28,23 @@ const Cart = () => {
         setOpen(false);
     };
 
+    const addItemToLocalStorage =(items)=>{
+        const checkoutCart={
+            listItem:items
+        }
+        localStorage.setItem('checkoutCart', JSON.stringify(checkoutCart));
+    }
+
     const handleCheckOut = () => {
+        addItemToLocalStorage(cart.listItem);
         setCheckOut(true);
         setTimeout(() => {
             setCheckOut(false);
             setOpen(false);
             setSuccess(true);
+            dispatch(onCheckoutItem());
         }, 5000);
+        
     }
     return (
         <div>
@@ -73,12 +81,13 @@ const Cart = () => {
             <hr />
             {total > 0 && <div className="cart-check-out">
                 <h3>Total: {total} $</h3>
-                <button className="btn bg-secondary ml-2" onClick={handleClickOpen}>Go to Check out</button>
+                <button className="btn bg-secondary ml-2" onClick={()=>handleClickOpen()}>Go to Check out</button>
             </div>
             }
             {isSuccess && <Alert severity="success">
-                <AlertTitle>Success !</AlertTitle>
-            </Alert>}
+                <AlertTitle>Thank you for your purchase !</AlertTitle>
+            </Alert>
+            }
             <Dialog
                 open={open}
                 onClose={handleClose}
@@ -86,9 +95,7 @@ const Cart = () => {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">CheckOut</DialogTitle>
-                {isCheckOut && <LinearProgress color="secondary" />}
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
+                {isCheckOut && <LinearProgress color="secondary" />}             
                         <Table striped bordered hover className="tb-cart">
                             <thead>
                                 <tr>
@@ -112,9 +119,7 @@ const Cart = () => {
                                     ))
                                 }
                             </tbody>
-                        </Table>
-                    </DialogContentText>
-                </DialogContent>
+                        </Table>                
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">
                         Close

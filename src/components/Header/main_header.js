@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const MainHeader = () => {
     return (
@@ -8,26 +8,23 @@ const MainHeader = () => {
                 <div className="row h-100">
                     <div className="col-sm-4 d-sm-flex align-items-center">
                         <div id="logo">
-                            <img src={"https://sotavn.com/media/stories/images/thiet-ke-logo-giay-the-thao-2.png"}/>
+                            <span>BANGIAYONLINE</span>
                         </div>
                     </div>
                     <div className="col-sm-8 d-sm-flex align-items-center">
                         <ul className="nav nav-bar">
                             <li className="nav-item">
-                            <Link to="/"><p className="nav-link text-white active">Home</p></Link>
-                            </li>                         
-                            <li className="nav-item">
-                             <Link to="/shopall" ><p className="nav-link text-white">Shop All</p></Link>   
+                                <Link to="/"><p className="nav-link text-white active">Home</p></Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-white" href="#">Blog</a>
+                                <Link to="/shopall" ><p className="nav-link text-white">Shop All</p></Link>
                             </li>
+                         
                             <li className="nav-item">
-                                <a className="nav-link text-white" href="#">Contact</a>
+                                <Link to="/contact" ><p className="nav-link text-white">Contact</p></Link>
                             </li>
                         </ul>
                     </div>
-                 
                 </div>
             </div>
         </div>

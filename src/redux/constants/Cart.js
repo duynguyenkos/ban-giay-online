@@ -3,7 +3,8 @@ export const cartAction = {
     ADD_TO_CART: 'ADD_TO_CART',
     GET_CART_ITEM: 'GET_CART_ITEM',
     INCREASE_QUANTITY_ITEM: 'INCREASE_QUANTITY_ITEM',
-    DECREASE_QUANTITY_ITEM: 'DECREASE_QUANTITY_ITEM'
+    DECREASE_QUANTITY_ITEM: 'DECREASE_QUANTITY_ITEM',
+    CHECKOUT_ITEM:'CHECKOUT_ITEM'
 }
 
 export const onAddToCart = (product) => {
@@ -30,5 +31,11 @@ export const onDecreaseQuantityItem = (prouductId) => {
     return {
         type: cartAction.DECREASE_QUANTITY_ITEM,
         payload: prouductId
+    }
+}
+
+export const onCheckoutItem =() =>{
+    return {
+        type:cartAction.CHECKOUT_ITEM
     }
 }

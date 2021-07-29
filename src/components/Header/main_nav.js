@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faList } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -49,7 +49,7 @@ const MainNav = () => {
                     <div className="col-sm-2 d-flex align-items-center nav-icons">
                         <span><FontAwesomeIcon icon={faUser} /></span>
                         <Link to="/cart"> <span><FontAwesomeIcon icon={faShoppingCart} /><strong className="cart-count" > {state.count}</strong></span></Link>
-                        <span><FontAwesomeIcon icon={faHeart} /></span>
+                        <Link to="/tracking"><span><FontAwesomeIcon icon={faShoppingBag} /></span></Link>                      
                     </div>
                 </div>
             </div>

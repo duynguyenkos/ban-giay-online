@@ -12,9 +12,12 @@ body {
   display: table;
 }
 
-#logo img {
-  width: 100px;
-  height: 35px;
+#logo span {
+ color: white;
+ font-weight: bold;
+ font-size: 25px;
+ font-family: "Great Vibes", cursive
+
 }
 
 .nav-bar {
@@ -160,4 +163,37 @@ body {
 }
 .cart-check-out{
   height: 150px;
+}
+.btnContactSubmit
+{
+  width: 50%;
+  border-radius: 1rem;
+  padding: 1.5%;
+  color: #fff;
+  background-color: #0062cc;
+  border: none;
+  cursor: pointer;
+}
+.contact-box {
+  margin: 10px;
+}
+
+.track-line {
+  height: 2px !important;
+  background-color: #212121
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-top: 0px;
+  background-color: #212121;
+  border-radius: 50%;
+  display: inline-block
+}
+
+.check-done {
+  margin-left: 5px;
 }

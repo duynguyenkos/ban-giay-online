@@ -51,6 +51,11 @@ const cart = (state = initialState, action) => {
                 count: state.count,
                 listItem: state.listItem.filter(p => p.quantity > 0)
             }
+        case 'CHECKOUT_ITEM':
+            return {
+                count: 0,
+                listItem: []
+            }
         default:
             return state
     }
