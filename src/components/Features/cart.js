@@ -14,7 +14,6 @@ const Cart = () => {
     const [isCheckOut, setCheckOut] = useState(false);
     const dispatch = useDispatch();
     const total = cart.listItem.reduce((acc, curr) => {
-        console.log(curr)
         return acc + curr.quantity * curr.price;
     }, 0)
     const [open, setOpen] = useState(false);
@@ -29,7 +28,16 @@ const Cart = () => {
     };
 
     const addItemToLocalStorage =(items)=>{
+        const dateCheckout= new Date();
+        const dateDelivery= new Date();
+        dateDelivery.setDate(dateCheckout.getDate()+15);
+        const dateReceived = new Date();
+        dateReceived.setDate(dateDelivery.getDate()+15);
+        localStorage.clear();
         const checkoutCart={
+            dateCheckout:dateCheckout.toLocaleDateString("en-US",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+            dateDelivery:dateDelivery.toLocaleDateString("en-US",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+            dateReceived:dateReceived.toLocaleDateString("en-US",{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
             listItem:items
         }
         localStorage.setItem('checkoutCart', JSON.stringify(checkoutCart));

@@ -12,7 +12,6 @@ const Product = () => {
     const state = useSelector(state => state.product);
     const dispatch = useDispatch();
     const top_product = product.filter(p=>p.id <5);
-    console.log(state);
     return (
         <div className="product">
             <h2 className="top-sell-title text-center">TOP SELLING</h2>

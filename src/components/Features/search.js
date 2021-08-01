@@ -13,7 +13,6 @@ const Search = () => {
     const dispatch = useDispatch();
 
     const resultArr = product.filter(p => p.name === productInfo);
-    console.log(resultArr);
 
     if (resultArr.length > 0) {
 

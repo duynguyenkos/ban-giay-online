@@ -10,7 +10,6 @@ const ProductDetail = () => {
     const { productId } = useParams();
     const listProduct = useContext(ProductContext);
     const product = listProduct.filter(p => p.id == productId);
-    console.log(product);
     const dispatch = useDispatch();
     return (
         <div className="container ">
