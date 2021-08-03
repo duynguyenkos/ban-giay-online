@@ -26,7 +26,7 @@ const TrackingDetail = props => {
         <div className="container mt-5">
             <div className="row">
                 <div className="d-flex flex-row justify-content-between align-items-center order">
-                    <div className="d-flex flex-column order-details"><span>Your order has been delivered</span><span className="date">by DHFL on {props.dateDelivery}</span></div>
+                    <div className="d-flex flex-column order-details"><span>Your order has been confirmed</span><span className="date">by DHFL on {props.dateCheckout}</span></div>
                 </div>
             </div>
             <div className="row">

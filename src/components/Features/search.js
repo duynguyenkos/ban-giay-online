@@ -32,7 +32,7 @@ const Search = () => {
                                     </div>
                                     <div className="add-to-cart">
                                         <button className="btn bg-secondary ml-2" onClick={() => { dispatch(onAddToCart({ img: product.image_url, id: product.id, name: product.name, price: product.price })) }}> Add to Cart <FontAwesomeIcon icon={faShoppingCart} /></button>
-                                        <button className="btn bg-light text-dark ml-2">View Detail <FontAwesomeIcon icon={faShoppingBag} /></button>
+                                 
                                     </div>
                                 </div>
                             </div>
