@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import Table from 'react-bootstrap/Table'
 import { useDispatch, useSelector } from 'react-redux'
-import { onGetcCartItem, onIncreaseQuantityItem, onDecreaseQuantityItem, onCheckoutItem } from '../../redux/constants/Cart';
+import { onGetCartItem, onIncreaseQuantityItem, onDecreaseQuantityItem, onCheckoutItem } from '../../redux/constants/Cart';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -89,7 +89,7 @@ const Cart = () => {
             <hr />
             {total > 0 && <div className="cart-check-out">
                 <h3>Total: {total} $</h3>
-                <button className="btn bg-secondary ml-2" onClick={()=>handleClickOpen()}>Go to Check out</button>
+                <button className="btn bg-secondary ml-2" onClick={handleClickOpen}>Go to Check out</button>
             </div>
             }
             {isSuccess && <Alert severity="success">

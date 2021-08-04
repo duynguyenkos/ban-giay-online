@@ -17,7 +17,6 @@ const MainNav = () => {
     }
 
     const state = useSelector(state => state.cart);
-    console.log(state.count);
 
     const [hovered, setHovered] = useState(false);
     const handleHover = () => {
